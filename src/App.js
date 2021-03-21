@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Route } from "react-router";
 
 //Homepage
 import Homepage from "./components/homepage";
@@ -8,18 +9,23 @@ import Homepage from "./components/homepage";
 import PatientList from "./components/PatientList";
 //styles
 import { GlobalStyle } from "./components/styles";
-import Patients from "./PatientData";
 import PatientDetail from "./components/patientDetail";
 
 function App() {
-  const [patient, setPatient] = useState(Patients[0]);
   return (
     <div>
       <GlobalStyle />
-      <Homepage />
-
-      <PatientList setPatient={setPatient} />
-      <PatientDetail patient={patient} />
+      <switch>
+        <Route>
+          <Homepage />
+        </Route>
+        <Route path="/Patients">
+          <PatientList />
+        </Route>
+        <Route path="/Patients/:patientId">
+          <PatientDetail />
+        </Route>
+      </switch>
     </div>
   );
 }

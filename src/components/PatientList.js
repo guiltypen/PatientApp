@@ -5,29 +5,36 @@ import Patients from "../PatientData";
 import Patient from "../components/Patient";
 // styles
 import { ListWrapper } from "../components/styles";
+//SearchBar
 import SearchBar from "./searchPatient";
+//import from store
+import patientStore from "../store/patientStore";
+
+import PatientModal from "../Modals/PatientModal";
+
+import { observer } from "mobx-react";
+import AddPatient from "./buttons/createPatient";
 
 const PatientList = (props) => {
   const [query, setQuery] = useState("");
-  //   const filteredPatient = Patients.filter((patient) =>
-  //     patient.patientName.includes(query)
-  //   );
-  //   const patientList = filteredPatient.map((patient) => (
-  //     <Patient patient={patient} key={patient.id} />
-  //   ));
 
-  const patientList = Patients.filter((patient) =>
+  const patientList = patientStore.Patients.filter((patient) =>
     patient.patientName.includes(query)
   ).map((patient) => (
     <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
   ));
 
+  // const patientList = patientStore.Patients.map((patient) => (
+  //   <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
+  // ));
+
   return (
     <div>
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{patientList}</ListWrapper>
+      <AddPatient />
     </div>
   );
 };
 
-export default PatientList;
+export default observer(PatientList);
