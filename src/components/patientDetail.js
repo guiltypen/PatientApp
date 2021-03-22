@@ -1,21 +1,33 @@
 import React from "react";
+import { useParams, Redirect } from "react-router-dom";
+//Styles
 import { DetailWrapper } from "../components/styles";
+//Delete
+import DeleteButton from "./buttons/deletebutton";
+// Stores
+import patientStore from "../store/patientStore";
 
-const PatientDetail = (props) => {
-  const patient = props.patient;
+import { observer } from "mobx-react";
+
+const PatientDetail = () => {
+  const { patientId } = useParams();
+  console.log(patientId);
+  const patient = patientStore.Patients.find(
+    (patient) => patient.slug === patientId
+  );
+  if (!patient) return <Redirect to="/Patients" />;
   return (
     <div>
       <DetailWrapper>
-        <p className="patientlName">{patient.patientName}</p>
-        <p className="patientAge">{patient.PatientAge}</p>
-        <p className="description">{patient.CaseDescription}</p>
-        <p className="hospitalName">{patient.HospitalName}</p>
-        <p className="hospitalName">{patient.DoctorName}</p>
+        <p className="patientlName">{patient.name}</p>
+        <p className="patientAge">{patient.age}</p>
+        <p className="description">{patient.case}</p>
+        <p className="hospitalName">{patient.hospital.name}</p>
+        {/* <p className="hospitalName">{patient.DoctorName}</p> */}
       </DetailWrapper>
-      <button>Delete</button>
-      <button>Update</button>
+      <DeleteButton patientId={patient.id} />
     </div>
   );
 };
 
-export default PatientDetail;
+export default observer(PatientDetail);

@@ -56,3 +56,13 @@ export const DetailWrapper = styled.div`
 export const DeleteButtonStyled = styled.p`
   color: red;
 `;
+
+// export const CreateButtonStyled = styled.button`
+//   color: lightblue;
+//   background-color: black;
+
+//   /* &:hover {
+//     color: ${(props) => props.theme.mainColor};
+//     background-color: ${(props) => props.theme.backgroundColor};
+//   } */
+// `;

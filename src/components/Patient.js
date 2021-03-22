@@ -1,22 +1,25 @@
 import React from "react";
 import Patients from "../PatientData";
+import { observer } from "mobx-react";
 //styles
 import { PatientWrapper } from "./styles";
+import UpdateButton from "./buttons/updateButton";
+
+import { Link } from "react-router-dom";
 
 const Patient = (props) => {
   const patient = props.patient;
 
   return (
     <PatientWrapper>
-      <p className="patientlName" onClick={() => props.setPatient(patient)}>
-        {patient.patientName}
-      </p>
-      {/* <p className="patientAge">{patient.PatientAge}</p> */}
-      {/* <p className="description">{patient.CaseDescription}</p> */}
-      <p className="hospitalName">{patient.HospitalName}</p>
-      {/* <p className="hospitalName">{patient.DoctorName}</p> */}
+      <Link to={`/Patients/${patient.slug}`}>
+        <p className="patientlName">{patient.name}</p>
+      </Link>
+      <p className="hospitalName">{patient.hospital.name}</p>
+
+      <UpdateButton patient={props.patient} />
     </PatientWrapper>
   );
 };
 
-export default Patient;
+export default observer(Patient);
