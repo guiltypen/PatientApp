@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router";
+import { Route, Switch } from "react-router-dom";
 
 //Homepage
 import Homepage from "./components/homepage";
@@ -16,17 +16,17 @@ function App() {
   return (
     <div>
       <GlobalStyle />
-      <switch>
-        <Route>
+      <Switch>
+        <Route path="/" exact>
           <Homepage />
         </Route>
-        <Route path="/Patients">
+        <Route path="/patients">
           <PatientList />
         </Route>
-        <Route path="/Patients/:patientId">
+        <Route path="/patients/:patientId">
           <PatientDetail />
         </Route>
-      </switch>
+      </Switch>
     </div>
   );
 }

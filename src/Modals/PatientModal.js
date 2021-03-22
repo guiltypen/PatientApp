@@ -5,11 +5,11 @@ const PatientModal = (props) => {
   const oldPatient = props.oldPatient;
   const [patient, setPatient] = useState(
     oldPatient ?? {
-      patientName: "",
-      patientAge: 0,
-      CaseDescription: "",
-      HospitalName: "",
-      DoctorName: "",
+      name: "",
+      age: 0,
+      case: "",
+      // HospitalName: "",
+      // DoctorName: "",
     }
   );
   const handleSubmit = (event) => {
@@ -35,8 +35,8 @@ const PatientModal = (props) => {
             <input
               type="text"
               className="form-control"
-              name="patientName"
-              //   value={patient.name}
+              name="name"
+              value={patient.name}
               onChange={handleChange}
             />
           </div>
@@ -44,10 +44,10 @@ const PatientModal = (props) => {
             <label>PatientAge</label>
             <input
               type="number"
-              value={patient.age}
+              defaultValue={patient.age}
               className="form-control"
               onChange={handleChange}
-              name="patientAge"
+              name="age"
             />
           </div>
         </div>
@@ -58,28 +58,28 @@ const PatientModal = (props) => {
             value={patient.case}
             className="form-control"
             onChange={handleChange}
-            name="CaseDescription"
+            name="case"
           />
         </div>
         <div className="form-group">
           <label> HospitalName</label>
-          <input
+          {/* <input
             type="text"
             value={patient.name}
             className="form-control"
             onChange={handleChange}
             name="HospitalName"
-          />
+          /> */}
         </div>
         <div className="form-group">
           <label> DoctorName</label>
-          <input
+          {/* <input
             type="text"
             value={patient.DoctorName}
             className="form-control"
             onChange={handleChange}
             name="DoctorName"
-          />
+          /> */}
         </div>
         <button onClick={handleSubmit}>Update</button>
       </form>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-//Data
-import Patients from "../PatientData";
+
 // one patient
 import Patient from "../components/Patient";
 // styles
@@ -9,8 +8,6 @@ import { ListWrapper } from "../components/styles";
 import SearchBar from "./searchPatient";
 //import from store
 import patientStore from "../store/patientStore";
-
-import PatientModal from "../Modals/PatientModal";
 
 import { observer } from "mobx-react";
 import AddPatient from "./buttons/createPatient";

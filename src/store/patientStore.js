@@ -18,7 +18,7 @@ class PatientStore {
     // this.Patients.push(patient);
     try {
       const res = await axios.post(
-        "http://localhost:8000/patients",
+        "http://localhost:8000/hospital/1/patients",
         newpatient
       );
       console.log("PatientStore -> createPatient -> res", newpatient);
