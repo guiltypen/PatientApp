@@ -18,15 +18,15 @@ import AddPatient from "./buttons/createPatient";
 const PatientList = (props) => {
   const [query, setQuery] = useState("");
 
-  const patientList = patientStore.Patients.filter((patient) =>
-    patient.patientName.includes(query)
-  ).map((patient) => (
-    <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
-  ));
-
-  // const patientList = patientStore.Patients.map((patient) => (
+  // const patientList = patientStore.Patients.filter((patient) =>
+  //   patient.name.includes(query)
+  // ).map((patient) => (
   //   <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
   // ));
+
+  const patientList = patientStore.Patients.map((patient) => (
+    <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
+  ));
 
   return (
     <div>

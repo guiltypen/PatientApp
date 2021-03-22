@@ -10,8 +10,9 @@ import PatientList from "./components/PatientList";
 //styles
 import { GlobalStyle } from "./components/styles";
 import PatientDetail from "./components/patientDetail";
-
+import patientStore from "./store/patientStore";
 function App() {
+  console.log(patientStore.Patients);
   return (
     <div>
       <GlobalStyle />

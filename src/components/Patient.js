@@ -13,9 +13,9 @@ const Patient = (props) => {
   return (
     <PatientWrapper>
       <Link to={`/Patients/${patient.slug}`}>
-        <p className="patientlName">{patient.patientName}</p>
+        <p className="patientlName">{patient.name}</p>
       </Link>
-      <p className="hospitalName">{patient.HospitalName}</p>
+      <p className="hospitalName">{patient.hospital.name}</p>
 
       <UpdateButton patient={props.patient} />
     </PatientWrapper>

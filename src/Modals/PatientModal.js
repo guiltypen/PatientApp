@@ -15,6 +15,7 @@ const PatientModal = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     patientStore[oldPatient ? "UpdatePatient" : "createPatient"](patient);
+    patientStore.createPatient(patient);
     props.closeModal();
   };
   const handleChange = (event) => {
@@ -35,7 +36,7 @@ const PatientModal = (props) => {
               type="text"
               className="form-control"
               name="patientName"
-              value={patient.patientName}
+              //   value={patient.name}
               onChange={handleChange}
             />
           </div>
@@ -43,7 +44,7 @@ const PatientModal = (props) => {
             <label>PatientAge</label>
             <input
               type="number"
-              value={patient.patientAge}
+              value={patient.age}
               className="form-control"
               onChange={handleChange}
               name="patientAge"
@@ -54,7 +55,7 @@ const PatientModal = (props) => {
           <label>CaseDescription</label>
           <input
             type="text"
-            value={patient.CaseDescription}
+            value={patient.case}
             className="form-control"
             onChange={handleChange}
             name="CaseDescription"
@@ -64,7 +65,7 @@ const PatientModal = (props) => {
           <label> HospitalName</label>
           <input
             type="text"
-            value={patient.HospitalName}
+            value={patient.name}
             className="form-control"
             onChange={handleChange}
             name="HospitalName"

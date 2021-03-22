@@ -19,11 +19,11 @@ const PatientDetail = () => {
   return (
     <div>
       <DetailWrapper>
-        <p className="patientlName">{patient.patientName}</p>
-        <p className="patientAge">{patient.PatientAge}</p>
-        <p className="description">{patient.CaseDescription}</p>
-        <p className="hospitalName">{patient.HospitalName}</p>
-        <p className="hospitalName">{patient.DoctorName}</p>
+        <p className="patientlName">{patient.name}</p>
+        <p className="patientAge">{patient.age}</p>
+        <p className="description">{patient.case}</p>
+        <p className="hospitalName">{patient.hospital.name}</p>
+        {/* <p className="hospitalName">{patient.DoctorName}</p> */}
       </DetailWrapper>
       <DeleteButton patientId={patient.id} />
     </div>
