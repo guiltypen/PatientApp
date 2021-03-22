@@ -10,19 +10,20 @@ import patientStore from "../store/patientStore";
 import { observer } from "mobx-react";
 
 const PatientDetail = () => {
-  const { patientId } = useParams();
-  console.log(patientId);
+  const { patientSlug } = useParams();
+  console.log(patientSlug);
   const patient = patientStore.Patients.find(
-    (patient) => patient.slug === patientId
+    (patient) => patient.slug === patientSlug
   );
-  if (!patient) return <Redirect to="/Patients" />;
+  console.log(patient);
+  if (!patient) return <Redirect to="/patients" />;
   return (
     <div>
       <DetailWrapper>
         <p className="patientlName">{patient.name}</p>
         <p className="patientAge">{patient.age}</p>
         <p className="description">{patient.case}</p>
-        <p className="hospitalName">{patient.hospital.name}</p>
+        {/* <p className="hospitalName">{patient.hospital.name}</p> */}
         {/* <p className="hospitalName">{patient.DoctorName}</p> */}
       </DetailWrapper>
       <DeleteButton patientId={patient.id} />

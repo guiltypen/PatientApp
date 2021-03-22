@@ -20,10 +20,11 @@ function App() {
         <Route path="/" exact>
           <Homepage />
         </Route>
-        <Route path="/patients">
+        <Route path="/patients" exact>
           <PatientList />
         </Route>
-        <Route path="/patients/:patientId">
+        <Route path="/patients/:patientSlug">
+          <PatientList />
           <PatientDetail />
         </Route>
       </Switch>

@@ -15,7 +15,6 @@ const PatientModal = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     patientStore[oldPatient ? "UpdatePatient" : "createPatient"](patient);
-    patientStore.createPatient(patient);
     props.closeModal();
   };
   const handleChange = (event) => {

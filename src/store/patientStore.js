@@ -13,21 +13,17 @@ class PatientStore {
     });
   }
   createPatient = async (newpatient) => {
-    // patient.id = this.Patients[this.Patients.length - 1].id + 1;
-    // patient.slug = slugify(patient.patientName);
-    // this.Patients.push(patient);
     try {
       const res = await axios.post(
         "http://localhost:8000/hospital/1/patients",
         newpatient
       );
-      console.log("PatientStore -> createPatient -> res", newpatient);
+      this.Patients.push(res.data);
     } catch (error) {
       console.error("PatientStore -> CreatePatient -> error", error);
     }
   };
   deletePatient = async (patientId) => {
-    // this.Patients = this.Patients.filter((patient) => patient.id !== patientId);
     try {
       await axios.delete(`http://localhost:8000/patients/${patientId}`);
       this.Patients = this.Patients.filter(
@@ -38,11 +34,6 @@ class PatientStore {
     }
   };
   UpdatePatient = async (updatedpatient) => {
-    // const patient = this.Patients.find(
-    //   (patient) => patient.id === updatePatient.id
-    // );
-    // for (const key in patient) patient[key] = updatePatient[key];
-    // patient.slug = slugify(patient.name);
     try {
       await axios.put(
         `http://localhost:8000/patients/${updatedpatient.id}`,
