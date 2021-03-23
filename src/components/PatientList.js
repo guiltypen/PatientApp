@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // one patient
 import Patient from "../components/Patient";
 // styles
-import { ListWrapper } from "../components/styles";
+import { ListWrapper, PatientListWrapper } from "../components/styles";
 //SearchBar
 import SearchBar from "./searchPatient";
 //import from store
@@ -26,11 +26,11 @@ const PatientList = (props) => {
   ));
 
   return (
-    <div>
+    <PatientListWrapper>
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{patientList}</ListWrapper>
       <AddPatient />
-    </div>
+    </PatientListWrapper>
   );
 };
 

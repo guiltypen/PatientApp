@@ -1,11 +1,18 @@
 import React from "react";
 import { useParams, Redirect } from "react-router-dom";
 //Styles
-import { DetailWrapper } from "../components/styles";
+import { Button } from "@material-ui/core";
+import {
+  DetailWrapper,
+  ButtonWrapper,
+  DetailWrapperName,
+} from "../components/styles";
 //Delete
 import DeleteButton from "./buttons/deletebutton";
 // Stores
 import patientStore from "../store/patientStore";
+
+import UpdateButton from "./buttons/updateButton";
 
 import { observer } from "mobx-react";
 
@@ -15,18 +22,21 @@ const PatientDetail = () => {
   const patient = patientStore.Patients.find(
     (patient) => patient.slug === patientSlug
   );
-  console.log(patient);
+
   if (!patient) return <Redirect to="/patients" />;
   return (
     <div>
       <DetailWrapper>
-        <p className="patientlName">{patient.name}</p>
-        <p className="patientAge">{patient.age}</p>
-        <p className="description">{patient.case}</p>
+        <DetailWrapperName>{patient.name}</DetailWrapperName>
+        <p className="patientAge">Patient Age : {patient.age}</p>
+        <p className="description">Patient Case Description : {patient.case}</p>
         {/* <p className="hospitalName">{patient.hospital.name}</p> */}
         {/* <p className="hospitalName">{patient.DoctorName}</p> */}
+        <ButtonWrapper style={{ display: "flex" }}>
+          <UpdateButton patient={patient} />
+          <DeleteButton patientId={patient.id} />
+        </ButtonWrapper>
       </DetailWrapper>
-      <DeleteButton patientId={patient.id} />
     </div>
   );
 };

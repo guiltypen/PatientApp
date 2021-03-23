@@ -9,15 +9,18 @@ import { Link } from "react-router-dom";
 
 const Patient = (props) => {
   const patient = props.patient;
-  // console.log(patient.slug);
+
   return (
     <PatientWrapper>
-      <Link to={`/patients/${patient.slug}`}>
-        <p className="patientlName">{patient.name}</p>
+      <Link
+        style={{ textDecoration: "none", color: "white" }}
+        to={`/patients/${patient.slug}`}
+        onClick={() => console.log("In Pateint.js", patient)}
+      >
+        <p className="patientlName" onClick={props.setPatient}>
+          {patient.name}
+        </p>
       </Link>
-      {/* <p className="hospitalName">{patient.hospital.name}</p> */}
-
-      <UpdateButton patient={props.patient} />
     </PatientWrapper>
   );
 };

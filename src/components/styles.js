@@ -1,68 +1,52 @@
 import styled, { createGlobalStyle } from "styled-components";
-
 export const GlobalStyle = createGlobalStyle`
   body {
     color: #242424;
-    background-color: #fefafb
+    background-color: #1e1e1e;
   }
 `;
 
-export const Title = styled.h3`
-  text-align: center;
-  color: purple;
-`;
-
+export const Title = styled.h3``;
 export const ListWrapper = styled.div`
-  align-items: center;
-  justify-content: center;
-  display: flex;
+  background-color: #272c34;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  height: 300px;
+  overflow: scroll;
+  scrollbar-color: #4285f4 #f5f5f5;
 `;
-
-export const PatientWrapper = styled.div`
+export const UpdateButton = styled.div`
   margin: 10px;
-
-  p {
-    text-align: center;
-
-    &.cookie-price {
-      color: Blue;
-    }
-  }
 `;
-
-export const SearchBarStyled = styled.input`
-  padding: 0.5rem;
-  margin: 1rem auto;
-  display: block;
-  width: 40%;
+export const DeleteButtonStyled = styled.div`
+  margin: 10px;
 `;
+export const PatientListWrapper = styled.div``;
+
+export const PatientWrapper = styled.div``;
+
+export const SearchBarStyled = styled.input``;
 
 export const DetailWrapper = styled.div`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-
-  img {
-    width: 40%;
-    float: left;
-  }
-
+  margin: 20px;
+  position: static;
+  background-color: #272c34;
+  padding: 30px;
+  border-radius: 8px;
   p {
-    vertical-align: middle;
+    color: white;
+    font-size: 14px;
   }
 `;
-
-export const DeleteButtonStyled = styled.p`
-  color: red;
+export const ListDetailWrapper = styled.div`
+  display: flex;
 `;
-
-// export const CreateButtonStyled = styled.button`
-//   color: lightblue;
-//   background-color: black;
-
-//   /* &:hover {
-//     color: ${(props) => props.theme.mainColor};
-//     background-color: ${(props) => props.theme.backgroundColor};
-//   } */
-// `;
+export const DetailWrapperName = styled.h2`
+  color: white;
+`;
+export const ButtonWrapper = styled.div`
+  justify-content: center;
+`;
