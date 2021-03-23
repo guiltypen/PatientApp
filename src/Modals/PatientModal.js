@@ -12,11 +12,14 @@ const PatientModal = (props) => {
       // DoctorName: "",
     }
   );
+
   const handleSubmit = (event) => {
     event.preventDefault();
     patientStore[oldPatient ? "UpdatePatient" : "createPatient"](patient);
+    console.log(patient);
     props.closeModal();
   };
+
   const handleChange = (event) => {
     setPatient({ ...patient, [event.target.name]: event.target.value });
   };

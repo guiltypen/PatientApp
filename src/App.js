@@ -4,12 +4,14 @@ import { Route, Switch } from "react-router-dom";
 //Homepage
 import Homepage from "./components/homepage";
 //Data
-// import Patients from "../src/PatientData";
+// import Doctors from "../src/PatientData";
 // Patients List
 import PatientList from "./components/PatientList";
+import DoctorList from "./components/DoctorList";
 //styles
 import { GlobalStyle, ListDetailWrapper } from "./components/styles";
 import PatientDetail from "./components/patientDetail";
+import DoctorDetail from "./components/doctorDetail .js";
 import patientStore from "./store/patientStore";
 
 function App() {
@@ -29,6 +31,15 @@ function App() {
           <ListDetailWrapper>
             <PatientList setSelected={setSelected} />
             <PatientDetail />
+          </ListDetailWrapper>
+        </Route>
+        <Route path="/doctors" exact>
+          <DoctorList />
+        </Route>
+        <Route path="/doctors/:doctorSlug">
+          <ListDetailWrapper>
+            <DoctorList setSelected={setSelected} />
+            <DoctorDetail />
           </ListDetailWrapper>
         </Route>
       </Switch>

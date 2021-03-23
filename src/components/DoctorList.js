@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 
 // one patient
-import Patient from "../components/Patient";
+import Patient from "./Patient";
+import Doctor from "./Doctor";
 // styles
-import { ListWrapper, PatientListWrapper } from "../components/styles";
+import { ListWrapper, PatientListWrapper } from "./styles";
 //SearchBar
 import SearchBar from "./searchPatient";
 //import from store
 import patientStore from "../store/patientStore";
 import doctorStore from "../store/doctorStore";
 import { observer } from "mobx-react";
-import AddPatient from "./buttons/createPatient";
+import AddDoctor from "./buttons/createDoctor";
 
-const PatientList = (props) => {
+const DoctorList = (props) => {
   const [query, setQuery] = useState("");
 
   // const patientList = patientStore.Patients.filter((patient) =>
@@ -21,21 +22,16 @@ const PatientList = (props) => {
   //   <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
   // ));
 
-  const patientList = patientStore.Patients.map((patient) => (
-    <Patient patient={patient} key={patient.id} setPatient={props.setPatient} />
+  const doctorList = doctorStore.Doctors.map((doctor) => (
+    <Doctor doctor={doctor} key={doctor.id} setDoctor={props.setDoctor} />
   ));
-
-  const doctorList = doctorStore.Doctors.map(
-    (doctor) => console.log(doctor.DoctorName)
-    // <Doctor docotor={doctor} key={doctor.id} setPatient={props.setPatient} />
-  );
   return (
     <PatientListWrapper>
       <SearchBar setQuery={setQuery} />
-      <ListWrapper>{patientList}</ListWrapper>
-      <AddPatient />
+      <ListWrapper>{doctorList}</ListWrapper>
+      <AddDoctor />
     </PatientListWrapper>
   );
 };
 
-export default observer(PatientList);
+export default observer(DoctorList);
